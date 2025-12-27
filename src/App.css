@@ -1,31 +1,20 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.header {
+  background-color: #333;
+  /* min-height: 8vh; */
   display: flex;
-  flex-direction: column;
+  /* flex-direction: column; */
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  justify-content: space-between;
+  /* font-size: calc(10px + 2vmin); */
   color: white;
+  font-weight: 700;
+  padding: 24px;
 }
 
-.App-link {
-  color: #61dafb;
+
+.header-link {
+  color: #fff;
+  text-decoration: none;
 }
 
 @keyframes App-logo-spin {
@@ -35,4 +24,71 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.Home_container__cF\+Wd {
+    margin: 40px auto;
+    max-width: 800px;
+    padding: 0 1rem;
+}
+
+.Home_list__pwU2m {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    margin: 0 auto;
+    padding: 0;
+    max-width: 900px;
+}
+
+.Home_link__dG8iO {
+    color: #333;
+    text-decoration: none;
+}
+
+.Home_post__5TdqA {
+    border: 1px solid #ccc;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 2rem;
+    padding: 1rem;
+}
+
+.Home_postTitle__AlP6s {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    margin-top: .5rem;
+}
+
+.Home_postBody__AnnY- {
+    font-size: 1rem;
+    line-height: 1.5;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
+    overflow: hidden;
+    max-width: 10;
+}
+
+.Home_postInfo__g-RmQ {
+    display: flex;
+    justify-content: space-between;
+}
+
+.Home_postDate__tvUdI {
+    color: #888;
+    font-size: .8rem;
+}
+
+.Home_postCategories__jjPkH {
+    display: flex;
+    flex-wrap: wrap;
+}
+.Home_postCategory__MwsK3 {
+    border: 1px solid #06c;
+    border-radius: .2rem;
+    color: #06c;
+    font-size: .8rem;
+    margin-right: .5rem;
+    padding: .2rem .4rem;
 }
