@@ -14,55 +14,55 @@ const homeListStyle = {
 };
 
 const homeLinkStyle = {
-    color: "#333",
-    textDecoration: "none",
+  color: "#333",
+  textDecoration: "none",
 };
 
 const homePostStyle = {
-    border: "1px solid #ccc",
-    display: "flex",
-    flexDirection: "row",
-    marginBottom: "2rem",
-    padding: "1rem",
+  border: "1px solid #ccc",
+  display: "flex",
+  flexDirection: "row",
+  marginBottom: "2rem",
+  padding: "1rem",
 };
 
 const homePostInfoStyle = {
-    display: "flex",
-    justifyContent: "space-between",
+  display: "flex",
+  justifyContent: "space-between",
 }
 
 const homePostDateStyle = {
-    color: "#888",
-    fontSize: ".8rem",
+  color: "#888",
+  fontSize: ".8rem",
 }
 
 const homePostCategoriesStyle = {
-    display: "flex",
-    flexWrap: "wrap",
+  display: "flex",
+  flexWrap: "wrap",
 }
 
 const homePostCategoryStyle = {
-    border: "1px solid #06c",
-    borderRadius: ".2rem",
-    color: "#06c",
-    fontSize: ".8rem",
-    marginRight: ".5rem",
-    padding: ".2rem .4rem",
+  border: "1px solid #06c",
+  borderRadius: ".2rem",
+  color: "#06c",
+  fontSize: ".8rem",
+  marginRight: ".5rem",
+  padding: ".2rem .4rem",
 }
 
 const homePostTitleStyle =  {
-    fontSize: "1.5rem",
-    marginBottom: "1rem",
-    marginTop: ".5rem",
+  fontSize: "1.5rem",
+  marginBottom: "1rem",
+  marginTop: ".5rem",
 }
 
 const homePostBodyStyle = {
-    fontSize: "1rem",
-    lineHeight: "1.5",
-    webkitBoxOrient: "vertical",
-    display: "-webkit-box",
-    overflow: "hidden",
-    maxHeight: "60px",
+  fontSize: "1rem",
+  lineHeight: "1.5",
+  webkitBoxOrient: "vertical",
+  display: "-webkit-box",
+  overflow: "hidden",
+  maxHeight: "60px",
 }
 
 export const Home = (props) => {
