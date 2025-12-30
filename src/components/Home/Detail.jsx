@@ -63,6 +63,9 @@ export const Detail = (props) => {
   const { postDatas } = props;
   const { id } = useParams();
   const post = postDatas.find((postData)=>postData.id == Number(id));
+  if (!post) {
+    return <div>記事が見つかりませんでした</div>;
+  }
   return (
     <div style={detailContainerStyle}>
       <div style={detailPostStyle}>
