@@ -69,12 +69,12 @@ const homePostBodyStyle = {
 
 
 export const Home = (props) => {
-  const { postDatas } = props;
+  const { posts } = props;
   return (
     <div class>
       <div style={homeContainerStyle}>
         <ul>
-          {postDatas.map((post) => (
+          {posts.map((post) => (
             <li style={homeListStyle} key={post.id}>
               <Link to={`/detail/${post.id}`} style={homeLinkStyle}>
                 <div style={homePostStyle}>
