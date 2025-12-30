@@ -13,7 +13,7 @@ function App() {
         <Header/>
         <Routes>
           <Route path="/" element={<Home postDatas={postDatas}/>}/>
-          <Route path="/detail" element={<Detail/>}/>
+          <Route path="/detail/:id" element={<Detail postDatas={postDatas}/>}/>
         </Routes>
       </div>
     </BrowserRouter>

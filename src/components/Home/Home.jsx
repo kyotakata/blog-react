@@ -76,7 +76,7 @@ export const Home = (props) => {
         <ul>
           {postDatas.map((post) => (
             <li style={homeListStyle} key={post.id}>
-              <Link to="/detail" state={{post}} style={homeLinkStyle}>
+              <Link to={`/detail/${post.id}`} style={homeLinkStyle}>
                 <div style={homePostStyle}>
                   <div>
                     <div style={homePostInfoStyle}>

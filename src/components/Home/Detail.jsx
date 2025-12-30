@@ -1,4 +1,4 @@
-import { useLocation } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 const detailContainerStyle = {
   margin: "40px auto",
@@ -59,13 +59,10 @@ const detailPostBodyStyle = {
   overflow: "hidden",
 }
 
-export const Detail = () => {
-  const { state } = useLocation();
-  const post = state?.post;
-  if (!post) {
-    return <div>データがありません</div>;
-  }
-
+export const Detail = (props) => {
+  const { postDatas } = props;
+  const { id } = useParams();
+  const post = postDatas.find((postData)=>postData.id == Number(id));
   return (
     <div style={detailContainerStyle}>
       <div style={detailPostStyle}>
