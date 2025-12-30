@@ -61,19 +61,25 @@ const detailPostBodyStyle = {
 }
 
 export const Detail = () => {
-  //const { posts } = props;
   const [post, setPost] = useState(); 
+  const [loading, setLoading] = useState(true); 
   const { id } = useParams();
   useEffect(() => {
     const fetcher = async () => {
-      const res = await fetch(`https://1hmfpsvto6.execute-api.ap-northeast-1.amazonaws.com/dev/posts/${id}`)
-      const data = await res.json()
-      setPost(data.post)
+      try{
+        const res = await fetch(`https://1hmfpsvto6.execute-api.ap-northeast-1.amazonaws.com/dev/posts/${id}`);
+        const data = await res.json();
+        setPost(data.post);
+      }finally{
+        setLoading(false);
+      }
     }
     fetcher()
   }, []);
 
-  //const post = posts.find((postData)=>postData.id == Number(id));
+  if(loading){
+    return <div>読み込み中...</div>;
+  }
 
   if (!post) {
     return <div>記事が見つかりませんでした</div>;

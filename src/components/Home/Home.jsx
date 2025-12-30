@@ -1,4 +1,5 @@
-import { BrowserRouter, Link, Routes, Route } from "react-router-dom";
+import {Link} from "react-router-dom";
+import { useState, useEffect } from "react";
 
 const homeContainerStyle = {
   margin: "40px auto",
@@ -68,8 +69,27 @@ const homePostBodyStyle = {
 }
 
 
-export const Home = (props) => {
-  const { posts } = props;
+export const Home = () => {
+  const [posts, setPosts] = useState([]); 
+  const [loading, setLoading] = useState(true); 
+  useEffect(() => {
+    const fetcher = async () => {
+      try{
+        const res = await fetch("https://1hmfpsvto6.execute-api.ap-northeast-1.amazonaws.com/dev/posts");
+        const data = await res.json();
+        setPosts(data.posts);
+
+      }finally{
+        setLoading(false);
+      }
+    }
+    fetcher();
+  }, []);
+
+  if(loading){
+    return <div>読み込み中...</div>;
+  }
+
   return (
     <div class>
       <div style={homeContainerStyle}>
