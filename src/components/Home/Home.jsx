@@ -1,3 +1,5 @@
+import { BrowserRouter, Link, Routes, Route } from "react-router-dom";
+
 const homeContainerStyle = {
   margin: "40px auto",
   maxWidth: "800px",
@@ -65,6 +67,7 @@ const homePostBodyStyle = {
   maxHeight: "60px",
 }
 
+
 export const Home = (props) => {
   const { postDatas } = props;
   return (
@@ -73,7 +76,7 @@ export const Home = (props) => {
         <ul>
           {postDatas.map((post) => (
             <li style={homeListStyle} key={post.id}>
-              <a style={homeLinkStyle} href="/">
+              <Link to={`/detail/${post.id}`} style={homeLinkStyle}>
                 <div style={homePostStyle}>
                   <div>
                     <div style={homePostInfoStyle}>
@@ -88,7 +91,7 @@ export const Home = (props) => {
                     <div style={homePostBodyStyle} dangerouslySetInnerHTML={{ __html: post.content }}/>
                   </div>
                 </div>
-              </a>
+              </Link>
             </li>
           ))}
         </ul>

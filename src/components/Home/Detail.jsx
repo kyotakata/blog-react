@@ -1,0 +1,90 @@
+import { useParams } from "react-router-dom";
+
+const detailContainerStyle = {
+  margin: "40px auto",
+  maxWidth: "800px",
+};
+
+const detailPostStyle = {
+  display: "flex",
+  flexDirection: "column",
+  padding: "1rem",
+};
+
+const detailPostImageStyle = {
+  display: "flex",
+  flexDirection: "column",
+  padding: "1rem",
+};
+
+const detailPostContentStyle = {
+  padding: "1rem"
+};
+
+const detailPostInfoStyle = {
+  display: "flex",
+  justifyContent: "space-between",
+}
+
+const detailPostDateStyle = {
+  color: "#888",
+  fontSize: ".8rem",
+};
+
+const detailPostCategoriesStyle = {
+  display: "flex",
+  flexWrap: "wrap",
+}
+
+const detailPostCategoryStyle = {
+  border: "1px solid #06c",
+  borderRadius: ".2rem",
+  color: "#06c",
+  fontSize: ".8rem",
+  marginRight: ".5rem",
+  padding: ".2rem .4rem",
+}
+
+const detailPostTitleStyle =  {
+  fontSize: "1.5rem",
+  marginBottom: "1rem",
+  marginTop: ".5rem",
+}
+
+const detailPostBodyStyle = {
+  fontSize: "1rem",
+  lineHeight: "1.5",
+  webkitBoxOrient: "vertical",
+  display: "-webkit-box",
+  overflow: "hidden",
+}
+
+export const Detail = (props) => {
+  const { postDatas } = props;
+  const { id } = useParams();
+  const post = postDatas.find((postData)=>postData.id == Number(id));
+  if (!post) {
+    return <div>記事が見つかりませんでした</div>;
+  }
+  return (
+    <div style={detailContainerStyle}>
+      <div style={detailPostStyle}>
+        <div style={detailPostImageStyle}>
+          <img src={post.thumbnailUrl}/>
+        </div>
+        <div style={detailPostContentStyle}>
+          <div style={detailPostInfoStyle}>
+            <div style={detailPostDateStyle}>{new Date(post.createdAt).toISOString().slice(0, 10)}</div>
+            <div style={detailPostCategoriesStyle}>
+              {post.categories.map((cat, index) => (
+                <div style={detailPostCategoryStyle} key={index}>{cat}</div>
+              ))}
+            </div>
+          </div>
+        </div>
+        <div style={detailPostTitleStyle}>{post.title}</div>
+        <div style={detailPostBodyStyle} dangerouslySetInnerHTML={{ __html: post.content }}/>
+      </div>
+    </div>
+  );
+};
