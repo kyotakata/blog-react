@@ -1,4 +1,5 @@
 import { useParams } from "react-router-dom";
+import { useState, useEffect } from "react";
 
 const detailContainerStyle = {
   margin: "40px auto",
@@ -59,10 +60,27 @@ const detailPostBodyStyle = {
   overflow: "hidden",
 }
 
-export const Detail = (props) => {
-  const { postDatas } = props;
+export const Detail = () => {
+  const [post, setPost] = useState(); 
+  const [loading, setLoading] = useState(true); 
   const { id } = useParams();
-  const post = postDatas.find((postData)=>postData.id == Number(id));
+  useEffect(() => {
+    const fetcher = async () => {
+      try{
+        const res = await fetch(`https://1hmfpsvto6.execute-api.ap-northeast-1.amazonaws.com/dev/posts/${id}`);
+        const data = await res.json();
+        setPost(data.post);
+      }finally{
+        setLoading(false);
+      }
+    }
+    fetcher()
+  }, []);
+
+  if(loading){
+    return <div>読み込み中...</div>;
+  }
+
   if (!post) {
     return <div>記事が見つかりませんでした</div>;
   }
