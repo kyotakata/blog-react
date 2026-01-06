@@ -5,7 +5,6 @@ export const Contact = () =>{
   const [emailError, setEmailError] = useState("");
   const [messageError, setMessageError] = useState("");
   const [loading, setLoading] = useState(false); 
-  let hasError = false;
 
   const [nameText,setNameText] = useState("");
   const [emailText,setEmailText] = useState("");
@@ -21,6 +20,7 @@ export const Contact = () =>{
     setNameError("");
     setEmailError("");
     setMessageError("");
+    let hasError = false;
 
     if(nameText.trim() === ""){
       setNameError("お名前は必須です。");
@@ -72,6 +72,7 @@ export const Contact = () =>{
       console.log(res.status);
       if(res.ok){
         alert("送信しました");
+        onClickClear();
       }else{
         alert(`送信失敗${res.status}`);
       }
@@ -80,7 +81,6 @@ export const Contact = () =>{
     }
     finally{
       setLoading(false);
-      onClickClear();
     }
   };
 
