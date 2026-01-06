@@ -1,3 +1,5 @@
+import {Link} from "react-router-dom";
+
 const headerStyle = {
   backgroundColor: "#333",
   display: "flex",
@@ -18,7 +20,7 @@ export const Header = () => {
   return (
       <header style={headerStyle}>
         <a style={headerLinkStyle} href="/">Blog</a>
-        <a style={headerLinkStyle} href="/">お問い合わせ</a>
+        <Link to="contact" style={headerLinkStyle}>お問い合わせ</Link>
       </header>
   );
 };
